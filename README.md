@@ -1,103 +1,70 @@
-# 🧠 Behavioral Screening System – Addiction Detection via Survey
+# 🧠 Behavioural Screening Using Machine Learning
 
-A Machine Learning-based system to detect potential behavioral addiction using survey data, classification models, and visual analytics.
-
----
-
-## 📌 Project Overview
-
-This project focuses on building a behavioral addiction screening system using survey responses. It aims to classify individuals into **Addicted** or **Non-Addicted** categories using Machine Learning algorithms based on their survey scores and response patterns.
+This project focuses on identifying behavioural patterns among 300 male students based on their responses to 15 sensitive questions regarding their attitudes and interest toward pornography. The goal is to classify individuals into categories such as **Addicted**, **Moderate**, or **Non-Addicted** using Machine Learning models.
 
 ---
 
-## 🔧 Tools & Technologies
+## 📂 Project Overview
 
-- **Language**: Python
-- **IDE**: PyCharm Community Edition 2024.2
-- **Libraries**: Pandas, NumPy, Scikit-learn, Matplotlib  
-- **Other Tools**: Excel (for data cleaning)  
-- **ML Models**: SVM, KNN, Decision Tree  
-- **Evaluation**: Confusion Matrix, Accuracy, Precision, Recall  
-- **Visualizations**: Correlation matrix, Age vs Addiction graphs  
-
----
-
-## 🗂️ Dataset
-
-- **Source**: Self-designed behavioral survey
-- **Format**: CSV
-- **Features**:
-  - Demographics (Age, Gender)
-  - Behavioral questions with Likert-scale responses
-  - Final score
-  - Labeled output: Addicted / Non-Addicted
+- 🎯 **Goal:** Early identification of potential pornography addiction through behavioural indicators.
+- 📊 **Dataset:** 300 male students’ responses to 15 behavior-related questions.
+- ✍️ **Type of Data:** Categorical (Yes/No, Agree/Disagree/Strongly Agree) converted into numerical form.
+- 🧮 **Scoring Method:** Total score out of 15, used to classify behavioural categories.
+- 🤖 **ML Algorithms Used:**
+  - K-Nearest Neighbors (KNN)
+  - Decision Tree Classifier
+  - Support Vector Machine (SVM)
 
 ---
 
-## 🎯 Objectives
+## 📈 Scoring System
 
-- Preprocess and clean survey data using Excel & Pandas.
-- Generate a scoring system to classify participants.
-- Apply and compare multiple ML algorithms (SVM, KNN, Decision Tree).
-- Visualize correlation and distribution across groups (age-wise trends).
-- Evaluate performance with confusion matrices and classification reports.
+Each participant's 15 responses were numerically encoded and summed:
 
----
+- **Total Score ≥ 12** → Addicted  
+- **Total Score between 7–11** → Moderate  
+- **Total Score < 7** → Non-Addicted  
 
-## 📊 Key Visualizations
-
-- **Correlation Matrix** – Shows relationship between different survey features.
-- **Age-wise Line Graph** – Addiction trends across age groups.
-- **Confusion Matrix** – Model performance visualization.
-
-_Screenshots or plots can be inserted here if available._
+This score was used as the target label (`Category`) for model training.
 
 ---
 
-## 🚀 Project Workflow
+## 🧠 Machine Learning Models
 
-1. **Data Collection**: Survey responses gathered and stored in CSV.
-2. **Data Preprocessing**:
-   - Cleaned using Excel and Pandas
-   - Label encoding for categorical responses
-3. **Scoring System**:
-   - Each response mapped to numerical score
-   - Final score used for classification
-4. **Model Building**:
-   - Used SVM, KNN, Decision Tree
-   - Trained and tested on split dataset
-5. **Evaluation**:
-   - Compared model accuracy and confusion matrix
-   - Used classification report for precision, recall, F1-score
-6. **Visualization**:
-   - Age-based trend analysis
-   - Correlation heatmap using Seaborn/Matplotlib
+### 🔹 K-Nearest Neighbors (KNN)
+- Used to predict the addiction category based on proximity to similar students.
+- Accuracy: *Reported after evaluation.*
+
+### 🔹 Decision Tree Classifier
+- Easy to interpret model for splitting students into categories.
+- Includes confusion matrix and classification report.
+
+### 🔹 Support Vector Machine (SVM)
+- Used with linear kernel for high-dimensional separation.
+- Compared with other models for accuracy and performance.
 
 ---
 
-## ✅ Results
+## ⚙️ Technologies & Tools
 
-| Model          | Accuracy |
-|----------------|----------|
-| SVM            | 85%      |
-| KNN            | 83%      |
-| Decision Tree  | 87%      |
-
-> Decision Tree performed the best in terms of accuracy and interpretability.
+- **Language:** Python  
+- **IDE:** PyCharm  
+- **Libraries:**
+  - `pandas`, `numpy`
+  - `scikit-learn`
+  - `matplotlib`, `seaborn`
+  - `openpyxl` for Excel I/O
 
 ---
 
-## 📁 Project Structure
+## 🗂️ Folder Structure
 
-```bash
-addiction-screening/
-│
-├── data/
-│   └── survey_data.csv
-│
-├── visuals/
-│   └── correlation_matrix.png
-│   └── age_vs_addiction.png
-│
-├── README.md
-└── requirements.txt
+```plaintext
+📁 behavioural-screening/
+├── behavioural_scoring.py         # Preprocessing and scoring
+├── knn_classifier.py             # KNN model code
+├── decision_tree_classifier.py   # Decision Tree model code
+├── svm_classifier.py             # SVM model code
+├── screening_data.xlsx           # Raw/cleaned dataset
+├── screening_with_category.xlsx  # Final scored data with labels
+└── README.md                     # Project documentation
